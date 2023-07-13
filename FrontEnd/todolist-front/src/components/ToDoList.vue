@@ -1,12 +1,8 @@
 <template>
   <div class="todo-list">
-    <Item
-        v-for="item in data"
-        :key="item._id"
-        :title="item.title"
-        :description="item.description"
-    >
-    </Item>
+    <div v-for="(item, index) in items" :key="index">
+      <Item :title="item.title" :description="item.description" @delete="removeItem(index)" />
+    </div>
   </div>
 </template>
 
@@ -16,8 +12,23 @@ import Item from "@/components/ListItem.vue";
 
 export default {
   components: {Item},
+  data() {
+    return {
+      items: [
+        {title: "doing os", description: "i wanna dye instead!"},
+        {title: "doing nlp", description: "it gives me anxiety"},
+        {title: "doing this!", description: "fucking boring"}
+      ]
+    }
+  },
   props: {
     data: () => ([])
+  },
+  methods: {
+    removeItem(index) {
+      // for test purpose
+      this.items.splice(index, 1);
+    }
   }
 }
 </script>
