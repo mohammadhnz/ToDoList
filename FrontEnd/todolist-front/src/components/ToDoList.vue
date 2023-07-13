@@ -36,7 +36,6 @@ export default {
 .todo-list{
   display: flex;
   flex-direction: column;
-  border: 2px solid darkred;
   width: 24rem;
   padding: 3px;
 }

@@ -26,13 +26,16 @@ export default {
   width: 100%;
   margin-top: 0;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .item:hover {
   background-color: #bdbdbd;
   cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 
 .item__delete {
   display: inline-flex;

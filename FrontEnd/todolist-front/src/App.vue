@@ -1,6 +1,6 @@
 <template>
   <section class="main">
-    <h1>My Todo List</h1>
+    <h1 class="title">My Todo List</h1>
     <List :data="items"></List>
   </section>
 </template>
@@ -33,7 +33,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -45,8 +45,12 @@ export default {
 .main{
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
   align-items: center;
   justify-content: center;
-
+}
+.title{
+  color: black;
 }
 </style>
