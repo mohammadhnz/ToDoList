@@ -1,5 +1,5 @@
 .DS_Store
-node_modules
+FrontEnd/todolist-front/node_modules
 /dist
 
 
