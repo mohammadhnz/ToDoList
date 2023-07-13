@@ -1,11 +1,29 @@
-<script setup>
-
-</script>
-
 <template>
-  $END$
+  <div>
+    <button @click="deleteItem">Delete</button>
+  </div>
 </template>
 
-<style scoped>
+<script>
+import axios from 'axios';
 
-</style>
+export default {
+  props: {
+    itemId: {
+      type: String,
+      required: true
+    }
+  },
+  methods: {
+    deleteItem() {
+      axios.delete(`/api/todo/${this.itemId}`)
+          .then(response => {
+            this.$emit('item-deleted');
+          })
+          .catch(error => {
+            console.log(error);
+          });
+    }
+  }
+}
+</script>
