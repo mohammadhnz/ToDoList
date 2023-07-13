@@ -11,4 +11,4 @@ def create_task():
     name = request.json['name']
     description = request.json['description']
     task = task_repository.create_task(name, description)
-    return jsonify({'id': task.id, 'name': task.name})
+    return jsonify({'id': task.id, 'name': task.name, 'description': task.description})
