@@ -16,9 +16,8 @@ class Task:
         Task.tasks[self.id] = self
         return self
 
-    @classmethod
-    def remove_task(cls, task):
-        del cls.tasks[task.id]
+    def delete(self):
+        del Task.tasks[self.id]
 
     def update(self, **kwargs):
         for key, value in kwargs.items():
