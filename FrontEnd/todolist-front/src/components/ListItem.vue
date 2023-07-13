@@ -1,10 +1,7 @@
 <template>
   <div>
-    <ul>
-      <li v-for="item in items" :key="item._id">
-        {{ item.title }}
-      </li>
-    </ul>
+    <h3>{{ title }}</h3>
+    <p>{{ description }}</p>
   </div>
 </template>
 
@@ -12,19 +9,13 @@
 import axios from 'axios';
 
 export default {
-  data() {
-    return {
-      items: []
+  props: {
+    title: {
+      type: String
+    },
+    description: {
+      type: String
     }
-  },
-  mounted() {
-    axios.get('/api/todo')
-        .then(response => {
-          this.items = response.data;
-        })
-        .catch(error => {
-          console.log(error);
-        });
   }
 }
 </script>
