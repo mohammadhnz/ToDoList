@@ -23,6 +23,7 @@ export default {
 
 <style scoped>
 .item {
+  position: relative;
   width: 100%;
   margin-top: 0;
   border-radius: 5px;
@@ -36,29 +37,29 @@ export default {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-
 .item__delete {
-  display: inline-flex;
-  margin-left: 22rem;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 1;
-  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 1.2rem;
   color: white;
+  cursor: pointer;
 }
 
 .item__title {
   color: white;
+  margin-left: 18px;
 }
 
-.item__head{
+.item__head {
   margin-top: 0;
   padding: 3px;
   background-color: darkred;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-.item__description{
+
+.item__description {
   padding: 23px;
   margin-bottom: 5px;
 }

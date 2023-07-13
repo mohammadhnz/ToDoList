@@ -1,7 +1,9 @@
 <template>
   <div class="todo-list">
-    <div v-for="(item, index) in items" :key="index">
-      <Item :title="item.title" :description="item.description" @delete="removeItem(index)" />
+    <div class="grid">
+      <div class="grid-item" v-for="(item, index) in items" :key="index">
+        <Item :title="item.title" :description="item.description" @delete="removeItem(index)" />
+      </div>
     </div>
     <button class="add-item-btn" @click="showModal = true" v-if="!showModal">Add</button>
     <div class="modal" v-if="showModal">
@@ -37,8 +39,12 @@ export default {
       newItem: {
         title: "",
         description: ""
-      }
+      },
+      columns: []
     }
+  },
+  created() {
+    this.columns.push([]);
   },
   props: {
     data: {
@@ -57,20 +63,41 @@ export default {
       });
       this.newItem.title = "";
       this.newItem.description = "";
-      this.showForm = false;
+      this.showModal = false;
+      this.updateColumns();
+    },
+    updateColumns() {
+      const itemsPerColumn = 3; // Change this to set the number of items per column
+      this.columns = [];
+      for (let i = 0; i < this.items.length; i += itemsPerColumn) {
+        const columnItems = this.items.slice(i, i + itemsPerColumn);
+        this.columns.push(columnItems);
+      }
+    }
+  },
+  watch: {
+    items() {
+      this.updateColumns();
     }
   }
 }
 </script>
 <style scoped>
-.todo-list{
+.todo-list {
   display: flex;
   flex-direction: column;
-  width: 24rem;
+  width: 100%;
   padding: 3px;
-  overflow: auto;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 10px;
+}
+
 .add-item-btn{
+  position: relative;
   width: 50%;
   height: 2rem;
   margin-top: 5px;
