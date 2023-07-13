@@ -1,17 +1,34 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h1>My Todo List</h1>
+    <List :data="items"></List>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import List from './components/ToDoList.vue';
+
 
 export default {
-  name: 'App',
+  data() {
+    return {
+      items: [
+        {title: "doing os", description: "i wanna dye instead!"},
+        {title: "doing nlp", description: "it gives me anxiety"},
+        {title: "doing this!", description: "fucking boring"}
+      ]
+    }
+  },
   components: {
-    HelloWorld
+    List,
+  },
+  methods: {
+    fetchItems() {
+      return [];
+    }
+  },
+  mounted() {
+    // this.fetchItems();
   }
 }
 </script>

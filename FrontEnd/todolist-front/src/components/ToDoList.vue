@@ -1,7 +1,7 @@
 <template>
   <div>
     <Item
-        v-for="item in items"
+        v-for="item in data"
         :key="item._id"
         :title="item.title"
         :description="item.description"
@@ -11,24 +11,13 @@
 </template>
 
 <script>
-import axios from 'axios';
-import Item from "@/components/Item.vue";
+// import axios from 'axios';
+import Item from "@/components/ListItem.vue";
 
 export default {
   components: {Item},
-  data() {
-    return {
-      items: []
-    }
-  },
-  mounted() {
-    axios.get('/api/todo')
-        .then(response => {
-          this.items = response.data;
-        })
-        .catch(error => {
-          console.log(error);
-        });
+  props: {
+    data: () => []
   }
 }
 </script>
