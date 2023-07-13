@@ -1,8 +1,8 @@
 <template>
-  <section class="main">
+  <div class="main">
     <h1 class="title">My Todo List</h1>
     <List :data="items"></List>
-  </section>
+  </div>
 </template>
 
 <script>
