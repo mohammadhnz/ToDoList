@@ -9,6 +9,6 @@ create_task_api = Blueprint('create_task_api', __name__)
 @create_task_api.post('/api/v1/tasks/')
 def create_task():
     name = request.json['name']
-    deadline = request.json['deadline']
-    task = task_repository.create_task(name, deadline)
+    description = request.json['description']
+    task = task_repository.create_task(name, description)
     return jsonify({'id': task.id, 'name': task.name})

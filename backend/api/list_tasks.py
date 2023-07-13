@@ -10,7 +10,7 @@ list_tasks_api = Blueprint('list_tasks_api', __name__)
 def get_tasks_list():
     tasks = task_repository.get_tasks_list()
     tasks_data = [
-        {'id': task.id, 'name': task.name, 'deadline': task.deadline}
+        {'id': task.id, 'name': task.name, 'description': task.description}
         for task in tasks
     ]
     return jsonify(tasks_data)
